@@ -35,16 +35,22 @@ public static void main(String[]args)
         System.out.println("4. Division(/)");
         System.out.println("5. Exit");
         System.out.print("Enter your choice: ");
-        int choice = sc.nextInt();
-
-        if(choice>5){
-            System.out.println("Invalid Input, Please select from 1 to 5."); continue;
-        }
-
-        if(choice==5){
-            System.out.println("Exiting Calculator... Goodbye!");
-            break;
-        }
+        String input = sc.next();
+        int choice;
+    try {
+        choice = Integer.parseInt(input);
+    } catch (NumberFormatException e) {
+        System.out.println("Invalid Input, Please enter a number from 1 to 5.");
+        continue;
+    }
+    if (choice < 1 || choice > 5) {
+        System.out.println("Invalid Input, Please select from 1 to 5.");
+        continue;
+    }
+    if (choice == 5) {
+        System.out.println("Exiting Calculator... Goodbye!");
+        break;
+    }
         System.out.print("Enter first number: ");
         double num1 = sc.nextDouble();
         System.out.print("Enter second number: ");
